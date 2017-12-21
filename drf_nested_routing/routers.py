@@ -1,4 +1,9 @@
-from django.core.urlresolvers import NoReverseMatch
+try:
+    # For older Django
+    from django.core.urlresolvers import NoReverseMatch
+except ImportError:
+    # For Django 2.0
+    from django.urls.exceptions import NoReverseMatch
 from rest_framework import views
 from rest_framework.reverse import reverse
 from rest_framework.response import Response
